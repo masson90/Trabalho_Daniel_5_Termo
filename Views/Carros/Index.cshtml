@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Trabalho_Daniel_5_Termo.Models.Carros>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Lista de Carros</h1>
+
+<p>
+    <a asp-action="Create">Criando Novo Carro</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeCarro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ano)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Combustivel)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeCarro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ano)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Combustivel)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID"><i class="fas fa-pencil-alt text-primary"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.ID"><i class="fas fa-search text-primary"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.ID"><i class="fas fa-trash-alt text-primary"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
